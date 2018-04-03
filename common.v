@@ -1,0 +1,30 @@
+///////////////////////////////////////////////////////////////////
+//		Multiplexer 2 - 1
+///////////////////////////////////////////////////////////////////
+module MUX2_1 (i1, i2, sel, out);
+input i1;
+input i2;
+input sel;
+output out;
+assign out = sel ? i2 : i1;
+endmodule
+
+
+
+///////////////////////////////////////////////////////////////////
+//		D FlipFlop
+///////////////////////////////////////////////////////////////////
+
+module D_FF( D, CLK, RstBar, Q);
+input D, CLK, RstBar;
+output Q;
+reg Q;
+always @(posedge CLK or negedge RstBar)
+begin
+	if(RstBar == 1'b0)
+		Q = 1'b0;
+	else if (CLK == 1'b1)
+		Q = D;
+end
+endmodule
+
